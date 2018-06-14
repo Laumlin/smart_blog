@@ -35,7 +35,7 @@ export default {
 			}
 		}
 	},
-	compontents: {
+	components: {
 		'v-article': article
 	}
 }
