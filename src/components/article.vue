@@ -1,11 +1,11 @@
 <template>
-	<article>
+	<div>
 		<h2><router-link :to="'/atricle/' + article.id" class="article-title">{{ article.title }}</router-link></h2>
 		<p><router-link :to="'/atricle/' + article.author.id" class="article-author">{{ article.author.name }}</router-link></p>
 		<span class="article-date">时间:{{ article.date }}</span>
 		<p class="article-content">{{ article.content }}</p>
 		<router-link :to="'/atricle/' + article.id" >查看全文</router-link>
-	</article>
+	</div>
 </template>
 
 <script>
