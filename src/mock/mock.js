@@ -19,8 +19,8 @@ const produceNewData = function () {
 	}
 
 	return {
-		articleList: articles
+		articles: articles
 	}
 }
 
-Mock.mock('http://host:8000/article', 'get', produceNewData);
+Mock.mock('https://test.com/article', 'get', produceNewData);
