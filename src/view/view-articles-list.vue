@@ -1,11 +1,11 @@
 <template>
 	<div class="articles-list">
-		<v-article v-for="article in articleList" :article="article" :key="article.id"></v-article>
+		<base-article v-for="article in articleList" :article="article" :key="article.id"/>
 	</div>
 </template>
 
 <script>
-import Article from '@/components/article'
+import BaseArticle from '@/components/base-article'
 import api from '@/api'
 export default {
 	name: 'articleList',
@@ -15,7 +15,7 @@ export default {
 		}
 	},
 	components: {
-		'v-article': Article
+		BaseArticle
 	},
 	created () {
 		api.get('/article').then(res => {
