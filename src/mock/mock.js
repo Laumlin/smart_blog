@@ -1,15 +1,15 @@
 const Mock = require('mockjs')
 
-const Random = Math.random
+const Random = Mock.Random
 
 const produceNewData = function () {
 	let articles = [];
 	for (let i = 0; i < 10; i++) {
 		let newArticle = {
-			title: Random.scentence(5, 30),
+			title: Random.csentence(5, 30),
 			id: Random.natural(),
 			content: Random.cparagraph(100, 400),
-			date: Random.dateTime(),
+			date:  Random.date() + ' ' + Random.time(),
 			author: {
 				name: Random.cname(),
 				id: Random.natural()
