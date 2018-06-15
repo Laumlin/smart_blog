@@ -1,7 +1,5 @@
 const Mock = require('mockjs')
-
 const Random = Mock.Random
-
 const produceNewData = function () {
 	let articles = [];
 	for (let i = 0; i < 10; i++) {
