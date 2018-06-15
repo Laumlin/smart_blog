@@ -10,6 +10,8 @@ import '@/assets/css/default.css'
 
 Vue.config.productionTip = false
 
+require('./mock/mock.js')
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
