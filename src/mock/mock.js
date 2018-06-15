@@ -23,4 +23,4 @@ const produceNewData = function () {
 	}
 }
 
-Mock.mock('/article', 'get', produceNewData);
+Mock.mock('https://test.com/article', 'get', produceNewData);
