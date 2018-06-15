@@ -1,22 +1,22 @@
 <template>
-	<div class="articles-list">
-		<base-article v-for="(item, index) in articleList" :article="item" :key="index"/>
+	<div class="home">
+		<base-article v-for="(article, key) in articles" :article="article" :key="key"/>
 	</div>
 </template>
 
 <script>
-import BaseArticle from '@/components/base-article'
+const BaseArticle = () => import('@/components/base-article')
+
 export default {
-	name: 'articleList',
+	name: 'view-home',
 	data () {
 		return {
-			articleList: []
+			articles: []
 		}
 	},
-	created () {
+	mounted () {
 		this.$http.get('https://test.com/article').then(res => {
-			this.articleList = res.articles
-			console.log(this.articleList)
+			this.articles = res.articleList
 		}).catch(err => {
 			console.log(err)
 		})
@@ -28,7 +28,7 @@ export default {
 </script>
 
 <style scoped>
-.articles-list {
+.home {
 	width: 70%;
 	background-color: #ddd;
 	overflow: hidden;
