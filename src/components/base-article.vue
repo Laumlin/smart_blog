@@ -22,8 +22,8 @@ article {
 	padding: 10px;
 	background-color: #fff;
 	border: 1px solid #adc2d7;
-	box-shadow: 0 6px 24px 1px rgba(0,0,0,.14), 
-				0 6px 10px 1px rgba(0,0,0,.12), 
+	box-shadow: 0 6px 24px 1px rgba(0,0,0,.14),
+				0 6px 10px 1px rgba(0,0,0,.12),
 				0 6px 10px -5px rgba(0,0,0,.2);
 }
 	.title {
@@ -38,6 +38,7 @@ article {
 	.author, .date {
 		margin: 8px;
 		font-size: 14px;
+    color: #333;
 	}
 		.author-link {
 			color: #40759b;

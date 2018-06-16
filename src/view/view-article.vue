@@ -50,10 +50,13 @@ article {
 	.author:hover {
 		text-decoration: underline;
 	}
-	.date {
+	.author, .date {
 		font-size: 14px;
-		float: right;
+    color: #333;
 	}
+  .date {
+    float: right;
+  }
 	.content {
 		clear: both;
 		margin-top: 20px;

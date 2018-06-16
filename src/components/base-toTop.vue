@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button class="back-top" @click="backTop()" v-show="backTopShow">toTop</button>
+    <button class="back-top" @click="backTop" v-show="backTopShow">toTop</button>
   </div>
 </template>
 
@@ -8,7 +8,7 @@
 export default {
   data () {
     return {
-      backTopShow: false
+      backTopShow: true
     }
   },
   mounted () {

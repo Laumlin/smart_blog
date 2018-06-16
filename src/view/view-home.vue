@@ -19,6 +19,7 @@ export default {
   computed: {
     articles () {
       return this.$store.state.article.articles.articles
+      console.log(this.$store.state.article.articles.articles)
     }
   },
 	mounted () {
@@ -52,9 +53,5 @@ export default {
 .home {
 	margin-left: 40px;
 	width: 70%;
-}
-.back-to-top {
-  width: 100px;
-  height: 100px;
 }
 </style>
