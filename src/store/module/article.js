@@ -18,14 +18,16 @@ export default {
   },
   actions: {
     getArticles ({state, commit}, query) {
-      return http.get('https://test.com/articles', {
-        page: query.page
-      })
+      // return http.get('https://test.com/articles', {
+      //   page: query.page
+      // })
+      return http.get('https://test.com/articles')
     },
     getArticle ({state, commit}, params) {
-      return http.get('https://test.com/article/', {
-        id: params.id
-      })
+      // return http.get('https://test.com/article/', {
+      //   id: params.id
+      // })
+      return http.get('https://test.com/article')
     }
   }
 }
