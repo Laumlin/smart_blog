@@ -16,7 +16,6 @@ export default {
 	created () {
 		this.$http.get('https://test.com/article').then(res => {
 			this.articleList = res.articles
-			console.log(this.articleList)
 		}).catch(err => {
 			console.log(err)
 		})
@@ -29,8 +28,7 @@ export default {
 
 <style scoped>
 .articles-list {
+	margin-left: 40px;
 	width: 70%;
-	background-color: #ddd;
-	overflow: hidden;
 }
 </style>
