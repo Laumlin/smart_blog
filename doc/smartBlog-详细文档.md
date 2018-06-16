@@ -22,7 +22,7 @@
 
       - type: `GET`
 
-      - url: `/article`
+      - url: `/articles`
 
       - 查询字符串: 
 
@@ -41,7 +41,7 @@
             {
               "title": String, //文章标题
               "id": Number, //文章id
-              "content": String, //文章内容
+              "intro": String, //简略内容
               "date": Date, //文章发布时间
               "author": {
                 "name": String, //作者名称
@@ -131,7 +131,7 @@
           {
             "title": String, //文章标题
             "id": Number, //文章id
-            "content": String, //文章内容
+            "intro": String, //简略内容
             "date": Date, //文章发布时间
             "author": {
               "name": String, //作者名称
