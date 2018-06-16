@@ -4,13 +4,14 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from './store'
+import Notification from 'vue-notification'
 import './api'
+import "@/mock/mock"
 
 import '@/assets/css/default.css'
 
 Vue.config.productionTip = false
-
-require('./mock/mock.js')
+Vue.use(Notification)
 
 /* eslint-disable no-new */
 new Vue({

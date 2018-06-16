@@ -1,0 +1,66 @@
+<template>
+  	<article>
+      <h2 class="title">{{ article.title }}</h2>
+      <span class="author">{{ article.author.name }}</span>
+      <span class="date">{{ article.date }}</span>
+      <p class="content">{{ article.content }}</p>
+  	</article>
+</template>
+
+<script>
+export default {
+	name: 'view-article',
+  computed: {
+    article () {
+      return this.$store.state.article.article_current
+    }
+  },
+	mounted () {
+    this.$store.dispatch('getArticle')
+      .then((res) => {
+        this.$store.commit('setArticle', res)
+      })
+      .catch((err) => {
+        this.$notify({
+          type: 'error',
+          title: '请重试',
+          text: '获取文章失败'
+        })
+      })
+	}
+}
+</script>
+
+<style scoped>
+article {
+	margin-left: 40px;
+	width: 70%;
+	padding: 20px;
+	text-align: left;
+	background-color: #fff;
+	border: 1px solid #adc2d7;
+	box-shadow: 1px 2px 3px #adc2d7;
+}
+ 	.title {
+ 		margin-bottom: 5px;
+		padding-bottom: 10px;
+		color: #40759b;
+		border-bottom: 1px solid #d8e2eb;
+ 	}
+	.author:hover {
+		text-decoration: underline;
+	}
+	.date {
+		font-size: 14px;
+		float: right;
+	}
+	.content {
+		clear: both;
+		margin-top: 20px;
+		line-height: 24px;
+		font-size: 16px;
+		font-family: "Source Code Pro";
+		text-indent: 32px;
+		color: #444;
+	}
+</style>
