@@ -16,6 +16,7 @@ export default {
 	},
 	mounted () {
 		this.$http.get('https://test.com/articles').then(res => {
+			console.log(res)
 			this.articles = res.articles
 		}).catch(err => {
 			console.log(err)
@@ -29,8 +30,7 @@ export default {
 
 <style scoped>
 .home {
+	margin-left: 40px;
 	width: 70%;
-	background-color: #ddd;
-	overflow: hidden;
 }
 </style>
