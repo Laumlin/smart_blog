@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <notifications group="foo" position="top center"></notifications>
     <!-- <img src="./assets/images/logo.png"> -->
     <router-view></router-view>
   </div>
