@@ -1,12 +1,10 @@
 <template>
-  <div class="article">
   	<article>
-  		<h2>{{ atricle.title }}</h2>
-  		<p>{{ artilce.author }}</p>
-  		<span>{{ article.date }}</span>
-  		<p>{{ article.content }}</p>
+  		<h2 class="title">{{ article.title }}</h2>
+  		<span class="author"><router-link :to="{ name: 'author', params: {id: article.author.id} }" class="author-link">{{ article.author.name }}</router-link></span>
+  		<span class="date">{{ article.date }}</span>
+  		<p class="content">{{ article.content }}</p>
   	</article>
-  </div>
 </template>
 
 <script>
@@ -14,20 +12,49 @@ export default {
 	name: 'articleDetail',
 	data () {
 		return {
-			article: {
-				title: '雨天，记得带把伞',
-				author: {name: '落梅雪舞', id:'author_1'},
-				date: '2018-05-17 09:39',
-				content: ' 岁月如梭，风雨人生，堪那荆棘载途，怎就一个“累”字概括。从来都是阴差阳错，错误的故事，寒了一季花开，冷了一掬花落。 有时候，沉默不语，寂静不言，不愿出门，只想一个呆着闷着。不愿读书写字，给懒惰找着各种借口，一心鼓捣一盆盆的多肉。空气一度低沉，在黑夜风吹起时，埋藏了云的眼泪。很多时候，想要坚强一点，不怕雨打或风吹，然湿透了的步履，如何来风干生命？如何去承担之重？岁月如梭，风雨人生，堪那荆棘载途，怎就一个“累”字概括。从来都是阴差阳错，错误的故事，寒了一季花开，冷了一掬花落。'
-			}
+			article: {}
 		}
 	},
-	created () {
-
+	mounted () {
+		let id = this.$route.params.id
+		this.$http.get('https://test.com/article/' + id)
+		.then(res => {
+			this.article = res.article
+		})
 	}
 }
 </script>
 
 <style scoped>
-
+article {
+	margin-left: 40px;
+	width: 70%;
+	padding: 20px;
+	text-align: left;
+	background-color: #fff;
+	border: 1px solid #adc2d7;
+	box-shadow: 1px 2px 3px #adc2d7;
+}
+ 	.title {
+ 		margin-bottom: 5px;
+		padding-bottom: 10px;
+		color: #40759b;
+		border-bottom: 1px solid #d8e2eb;
+ 	}
+	.author:hover {
+		text-decoration: underline;
+	}
+	.date {
+		font-size: 14px;
+		float: right;
+	}
+	.content {
+		clear: both;
+		margin-top: 20px;
+		line-height: 24px;
+		font-size: 16px;
+		font-family: "Source Code Pro";
+		text-indent: 32px;
+		color: #444;
+	}
 </style>
