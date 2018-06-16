@@ -1,12 +1,12 @@
 <template>
 	<div class="login">
-    <div class="login-sign">
+    <div class="login-sign" @keyup.enter="login">
       <div class="login-sign-logo">
         <img class="login-sign-avator" src="../assets/images/girl.png" alt="你的头像不见了！">
       </div>
       <div class="login-sign-form">
-        <input type="text" v-model="username" class="login-sign-input" placeholder="username" autofocus><br/>
-        <input type="text" v-model="password" class="login-sign-input"
+        <input type="text" v-model="user.username" class="login-sign-input" placeholder="username" autofocus><br/>
+        <input type="text" v-model="user.password" class="login-sign-input"
         placeholder="password" @keyup.enter.stop="login"><br/>
         <button @click="login" class="login-sign-btn">登录</button>
       </div>
@@ -19,13 +19,45 @@
     name: 'view-login',
     data () {
       return {
-        username: '',
-        password: ''
+        user: {
+          username: '',
+          password: ''
+        }
       }
     },
     methods: {
       login () {
-        //登录函数
+        if (!this.user.username || !this.user.password) {
+          this.$notify({
+            group: 'foo',
+            type: 'error',
+            title: '账号密码不得为空',
+            text: '登录失败'
+          })
+          return
+        }
+        this.$store.dispatch('login', {
+          username: this.user.username,
+          password: this.user.password
+        })
+          .then((res) => {
+            this.$store.commit('setUser', res)
+            this.$notify({
+              group: 'foo',
+              title: '欢迎您',
+              text: '登录成功!'
+            })
+            this.$store.commit('resetStore')
+            // this.$router.push({name: 'home'})
+          })
+          .catch((err) => {
+            this.$notify({
+              group: 'foo',
+              type: 'error',
+              title: '账号或密码错误',
+              text: '登录失败'
+            })
+          })
       }
     }
   }
