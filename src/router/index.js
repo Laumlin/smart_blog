@@ -21,12 +21,12 @@ export default new Router({
     },
     {
       path: '/article',
-      name: 'articles-list',
+      name: 'articles',
       component: ArticlesList
     },
     {
       path: '/article/:id',
-      name: 'articles-detail',
+      name: 'article',
       component: ArticlesDetail
     }
   ]

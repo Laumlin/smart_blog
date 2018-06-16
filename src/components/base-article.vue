@@ -1,10 +1,10 @@
 <template>
 	<article>
-		<h2><router-link :to="'/atricle/' + article.id" class="title">{{ article.title }}</router-link></h2>
-		<!-- <span><router-link :to="'/atricle/' + article.author.id" class="author">{{ article.author.name }}</router-link></span> -->
+		<h2 class="title"><router-link :to="{ name: 'article', params: {id: article.id} }" class="title-link">{{ article.title }}</router-link></h2>
+		<span class="author"><router-link :to="{ name: 'author', params: {id: article.author.id} }" class="author-link">{{ article.author.name }}</router-link></span>
 		<span class="date">时间:{{ article.date }}</span>
 		<p class="content">{{ article.content }}</p>
-		<router-link :to="'/atricle/' + article.id" >查看全文</router-link>
+		<router-link :to="{ name: 'article', params: {id: article.id} }" class="readmore">查看全文...</router-link>
 	</article>
 </template>
 
@@ -18,28 +18,40 @@ export default {
 
 <style scoped>
 article {
-	width: 100%;
+	margin-bottom: 30px;
 	padding: 10px;
-	border-bottom: 1px dashed #000;
+	background-color: #fff;
+	border: 1px solid #adc2d7;
+	box-shadow: 1px 2px 3px #adc2d7;
 }
 	.title {
-		font-size: 26px;
-		color: #000;
+		margin-bottom: 5px;
+		padding-bottom: 10px;
+		border-bottom: 1px solid #d8e2eb
 	}
+		.title-link {
+			font-size: 22px;
+			color: #40759b;
+		}
 	.author, .date {
 		margin: 8px;
-		padding: 5px;
-		font-size: 14px;	
-		color: #000;
+		font-size: 14px;
 	}
-	.title:hover, .author:hover {
-		color: #0581e1;
-	}
+		.author-link {
+			color: #40759b;
+		}
 	.content {
 		margin: 20px 100px;
+		color: #444;
+		font-size: 16px;
 		text-overflow: ellipsis;
-		color: #000;
 		white-space: nowrap;
 		overflow: hidden;
 	}
+	.readmore {
+		color: #40759b;
+	}
+		.title:hover, .author:hover, .readmore:hover {
+			text-decoration: underline;
+		}
 </style>
