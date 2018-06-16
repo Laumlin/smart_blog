@@ -15,8 +15,8 @@ export default {
 		}
 	},
 	mounted () {
-		this.$http.get('https://test.com/article').then(res => {
-			this.articles = res.articleList
+		this.$http.get('https://test.com/articles').then(res => {
+			this.articles = res.articles
 		}).catch(err => {
 			console.log(err)
 		})

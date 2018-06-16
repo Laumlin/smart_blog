@@ -3,7 +3,7 @@
 		<h2><router-link :to="{name: 'home'}" class="title">{{ article.title }}</router-link></h2>
 		<!-- <span><router-link :to="'/atricle/' + article.author.id" class="author">{{ article.author.name }}</router-link></span> -->
 		<span class="date">时间:{{ article.date }}</span>
-		<p class="content">{{ article.content }}</p>
+		<p class="content">{{ article.intro }}</p>
 		<router-link :to="{ name: 'article', params: {id: article.id} }" >查看全文</router-link>
 	</article>
 </template>
