@@ -15,7 +15,6 @@ export default {
   },
   actions: {
     login ({state, commit}, data) {
-      console.log(state)
       return http.post('https://test.com/login', data)
     }
   }
