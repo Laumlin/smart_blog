@@ -24,29 +24,49 @@
 
       - url: `/article`
 
+      - 查询字符串: 
+
+        ```json
+        {
+          "page": Number, //页数
+        }
+        ```
+
       - 返回参数: 
 
         ```json
-        [
-          {
-            "title": String, //文章标题
-            "id": Number, //文章id
-            "content": String, //文章内容
-            "date": Date, //文章发布时间
-            "author": {
-              "name": String, //作者名称
-              "id": Number, //作者id
+        {
+          "next": Boolean, //是否有下一页
+          "articles": [
+            {
+              "title": String, //文章标题
+              "id": Number, //文章id
+              "content": String, //文章内容
+              "date": Date, //文章发布时间
+              "author": {
+                "name": String, //作者名称
+                "id": Number, //作者id
+                "gender": Boolean //作者性别, true为女生, false为男生, 默认为true
+              }
             }
-          }
-         ...
-        ]
+           ...
+          ]
+        }
         ```
 
-   2. 文章具体
+   2. 文章详细
 
       - type: `GET`
 
-      - url: `/article/:id`
+      - url: `/article/`
+
+      - 参数: 
+
+        ```json
+        {
+          "id": Number //文章id
+        }
+        ```
 
       - 返回参数:
 
@@ -59,6 +79,7 @@
           "author": {
             "name": String, //作者名称
             "id": Number, //作者id
+            "gender": Boolean //作者性别, true为女生, false为男生, 默认为true
           }
         }
         ```
@@ -69,7 +90,15 @@
 
       - type: `GET`
 
-      - url: `/user/:id`
+      - url: `/user/`
+
+      - 参数
+
+        ```json
+        {
+          "id": Number //作者id
+        }
+        ```
 
       - 返回参数:
 
@@ -77,6 +106,7 @@
         {
           "name": String, //作者名称
           "id": Number, //作者id
+          "gender": boolean
         }
         ```
 
@@ -84,7 +114,15 @@
 
       - type: `get`
 
-      - url: `/article?userId=2`
+      - url: `/article`
+
+      - 查询字符串
+
+        ```json
+        {
+          "authorId": Number, //作者id
+        }
+        ```
 
       - 返回参数
 
@@ -98,6 +136,7 @@
             "author": {
               "name": String, //作者名称
               "id": Number, //作者id
+              "gender": Boolean //作者性别, true为女生, false为男生, 默认为true
             }
           }
          ...
