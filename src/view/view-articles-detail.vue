@@ -1,7 +1,7 @@
 <template>
   	<article>
   		<h2 class="title">{{ article.title }}</h2>
-  		<span class="author"><router-link :to="{ name: 'author', params: {id: article.author.id} }" class="author-link">{{ article.author.name }}</router-link></span>
+  		<span class="author">{{ article.author.name }}</span>
   		<span class="date">{{ article.date }}</span>
   		<p class="content">{{ article.content }}</p>
   	</article>
@@ -41,9 +41,6 @@ article {
 		color: #40759b;
 		border-bottom: 1px solid #d8e2eb;
  	}
-	.author:hover {
-		text-decoration: underline;
-	}
 	.date {
 		font-size: 14px;
 		float: right;
