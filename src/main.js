@@ -6,7 +6,7 @@ import router from './router'
 import store from './store'
 import Notification from 'vue-notification'
 import './api'
-import './mock/mock'
+import "@/mock/mock"
 
 import '@/assets/css/default.css'
 
