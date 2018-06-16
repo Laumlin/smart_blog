@@ -1,9 +1,6 @@
 <template>
   	<article>
-  		<h2 class="title">{{ article.title }}</h2>
-  		<span class="author"><router-link :to="{ name: 'author', params: {id: article.author.id} }" class="author-link">{{ article.author.name }}</router-link></span>
-  		<span class="date">{{ article.date }}</span>
-  		<p class="content">{{ article.content }}</p>
+
   	</article>
 </template>
 
