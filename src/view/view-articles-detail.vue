@@ -33,7 +33,9 @@ article {
 	text-align: left;
 	background-color: #fff;
 	border: 1px solid #adc2d7;
-	box-shadow: 1px 2px 3px #adc2d7;
+	box-shadow: 0 6px 24px 1px rgba(0,0,0,.14), 
+				0 6px 10px 1px rgba(0,0,0,.12), 
+				0 6px 10px -5px rgba(0,0,0,.2);
 }
  	.title {
  		margin-bottom: 5px;
