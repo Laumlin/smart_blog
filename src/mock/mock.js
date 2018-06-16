@@ -1,26 +1,5 @@
 const Mock = require('mockjs')
 
-const Random = Mock.Random
+import {articles} from './articles'
 
-const produceNewData = function () {
-	let articles = [];
-	for (let i = 0; i < 10; i++) {
-		let newArticle = {
-			title: Random.csentence(5, 30),
-			id: Random.natural(),
-			content: Random.cparagraph(100, 400),
-			date:  Random.date() + ' ' + Random.time(),
-			author: {
-				name: Random.cname(),
-				id: Random.natural()
-			}
-		}
-		articles.push(newArticle)
-	}
-
-	return {
-		articles: articles
-	}
-}
-
-Mock.mock('https://test.com/article', 'get', produceNewData);
+Mock.mock('https://test.com/articles', 'get', articles)
