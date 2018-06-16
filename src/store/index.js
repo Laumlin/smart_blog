@@ -8,18 +8,13 @@ import article from './module/article'
 Vue.use(Vuex)
 
 const modules = {
-  user
+  user,
+  article
 }
-const initialStateJson = JSON.stringify(new Vuex.Store({
-  modules
-}).state)
+
 const store = new Vuex.Store({
   modules,
   plugins: [createPersistedState()],
-  mutations: {
-    resetStore () {
-      store.replaceState(JSON.parse(initialStateJson))
-    }
-  }
+  mutations: {}
 })
 export default store
