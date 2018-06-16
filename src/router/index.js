@@ -3,7 +3,7 @@ import Router from 'vue-router'
 
 const Login = () => import ('@/view/view-login')
 const Home = () => import ('@/view/view-home')
-const ArticlesDetail = () => import ('@/view/view-articles-detail')
+const Article = () => import ('@/view/view-article')
 
 Vue.use(Router)
 
@@ -29,7 +29,7 @@ export default new Router({
     {
       path: '/article/:id',
       name: 'article',
-      component: ArticlesDetail
+      component: Article
     }
   ]
 })

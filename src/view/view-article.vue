@@ -9,7 +9,7 @@
 
 <script>
 export default {
-	name: 'articleDetail',
+	name: 'view-article',
   computed: {
     article () {
       return this.$store.state.article.article_current
