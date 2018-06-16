@@ -47,8 +47,7 @@
               title: '欢迎您',
               text: '登录成功!'
             })
-            this.$store.commit('resetStore')
-            // this.$router.push({name: 'home'})
+            this.$router.push({name: 'home'})
           })
           .catch((err) => {
             this.$notify({

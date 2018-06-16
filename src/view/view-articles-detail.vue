@@ -1,23 +1,32 @@
 <template>
   	<article>
-
+      <h2 class="title">{{ article.title }}</h2>
+      <span class="author">{{ article.author.name }}</span>
+      <span class="date">{{ article.date }}</span>
+      <p class="content">{{ article.content }}</p>
   	</article>
 </template>
 
 <script>
 export default {
 	name: 'articleDetail',
-	data () {
-		return {
-			article: {}
-		}
-	},
+  computed: {
+    article () {
+      return this.$store.state.article.article_current
+    }
+  },
 	mounted () {
-		let id = this.$route.params.id
-		this.$http.get('https://test.com/article/' + id)
-		.then(res => {
-			this.article = res.article
-		})
+    this.$store.dispatch('getArticle')
+      .then((res) => {
+        this.$store.commit('setArticle', res)
+      })
+      .catch((err) => {
+        this.$notify({
+          type: 'error',
+          title: '请重试',
+          text: '获取文章失败'
+        })
+      })
 	}
 }
 </script>

@@ -1,6 +1,6 @@
 <template>
 	<div class="home">
-		<!-- <base-article v-for="(article, key) in articles" :article="article" :key="key"/> -->
+		<base-article v-for="(article, key) in articles" :article="article" :key="key"/>
 	</div>
 </template>
 
@@ -14,30 +14,31 @@ export default {
       page: 1
 		}
 	},
-  // computed: {
-  //   articles () {
-  //     return this.$store.state.article.articles
-  //   }
- //  },
-	// mounted () {
- //    this.$store.dispatch('getArticles', {
- //      page: this.page
- //    })
- //      .then((res) => {
- //        if (this.page == 1) {
- //          this.$store.commit('setArticles', res)
- //        } else {
- //          this.$store.commit('addArticles', res)
- //        }
- //      })
- //      .catch((err) => {
- //        this.$notify({
- //          type: 'error',
- //          title: '请重试',
- //          text: '获取文章失败'
- //        })
- //      })
-	// },
+  computed: {
+    articles () {
+      return this.$store.state.article.articles.articles
+    }
+  },
+	mounted () {
+    this.$store.dispatch('getArticles', {
+      page: this.page
+    })
+      .then((res) => {
+        if (this.page == 1) {
+          this.$store.commit('setArticles', res)
+          this.page++
+        } else {
+          this.$store.commit('addArticles', res)
+        }
+      })
+      .catch((err) => {
+        this.$notify({
+          type: 'error',
+          title: '请重试',
+          text: '获取文章失败'
+        })
+      })
+	},
 	components: {
 		BaseArticle
 	},
