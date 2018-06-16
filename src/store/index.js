@@ -2,12 +2,13 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import createPersistedState from 'vuex-persistedstate'
 
-import demo from './module/demo'
+import user from './module/user'
+import article from './module/article'
 
 Vue.use(Vuex)
 
 const modules = {
-  demo
+  user
 }
 const initialStateJson = JSON.stringify(new Vuex.Store({
   modules
