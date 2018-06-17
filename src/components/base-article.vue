@@ -4,10 +4,10 @@
       <h2><router-link :to="{ name: 'article', params: {id: article.id} }" class="title">{{ article.title }}</router-link></h2>
     </header>
     <div class="intro">
-      <div class="intro-author"><span class="author">{{ article.author.name }}</span></div>
-      <div class="intro-date"><span class="date">时间:{{ article.date }}</span></div>
+      <div class="intro-author"><span class="author">作者: {{ article.author.name }}</span></div>
+      <div class="intro-date"><span class="date">时间:{{ article.date | dateMagic }}</span></div>
     </div>
-		<p class="content">{{ article.intro }}</p>
+		<p class="content">{{ article.intro | textCut(100, '空空如也') }}</p>
     <footer class="footer">
       <router-link :to="{name: 'article', params: {id: article.id}}"><base-button>查看更多</base-button></router-link>
     </footer>
