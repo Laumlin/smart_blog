@@ -21,7 +21,7 @@ export default {
       // return http.get('https://test.com/articles', {
       //   page: query.page
       // })
-      return http.get('https://test.com/articles')
+      return http.get('http://172.18.5.196:8080/Smart_Blog/login')
     },
     getArticle ({state, commit}, params) {
       // return http.get('https://test.com/article/', {
