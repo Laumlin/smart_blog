@@ -44,7 +44,8 @@ export default {
   bottom: 50px;
   width: 50px;
   height: 50px;
-  background: url('../assets/images/top.png') no-repeat;
+  background: url('../assets/images/top_1.png');
+  background-size: 50px 50px;
   opacity: 0.7;
 }
 </style>

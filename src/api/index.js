@@ -13,7 +13,7 @@ axios.interceptors.response.use((response) => {
 })
 
 const _handleResponse = (res) => {
-  const data = res
+  const data = res.data
   return Promise.resolve(data.data)
 }
 
