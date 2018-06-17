@@ -28,7 +28,7 @@
     width: 100%;
     height: 60px;
     background-color: #fff;
-    box-shadow: 1px 1px 1px #3333337d;
+    box-shadow: 1px 1px 1px #a5a5a582;
   }
     .logo-wrap {
       display: flex;
