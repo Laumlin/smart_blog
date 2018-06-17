@@ -1,6 +1,8 @@
 <template>
 	<div class="home">
-		<base-article v-for="(article, key) in articles" :article="article" :key="key"/>
+		<div class="article-wrap">
+      <base-article v-for="(article, key) in articles" :article="article" :key="key"/>
+    </div>
     <Base-toTop class="back-to-top"/>
 	</div>
 </template>
@@ -51,7 +53,12 @@ export default {
 
 <style scoped>
 .home {
-	margin-left: 40px;
-	width: 80%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 80px;
 }
+  .article-wrap {
+    width: 850px;
+  }
 </style>
