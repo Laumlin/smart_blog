@@ -4,10 +4,12 @@
       <span class="author">{{ article.author.name }}</span>
       <span class="date">{{ article.date }}</span>
       <p class="content">{{ article.content }}</p>
+      <Base-toTop class="back-to-top"/>
   	</article>
 </template>
 
 <script>
+const BaseToTop = () => import('@/components/base-toTop')
 export default {
 	name: 'view-article',
   computed: {
@@ -27,14 +29,17 @@ export default {
           text: '获取文章失败'
         })
       })
-	}
+	},
+  components: {
+    BaseToTop
+  }
 }
 </script>
 
 <style scoped>
 article {
 	margin-left: 40px;
-	width: 70%;
+	width: 80%;
 	padding: 20px;
 	text-align: left;
 	background-color: #fff;
@@ -44,16 +49,20 @@ article {
  	.title {
  		margin-bottom: 5px;
 		padding-bottom: 10px;
+    text-align: center;
 		color: #40759b;
 		border-bottom: 1px solid #d8e2eb;
  	}
 	.author:hover {
 		text-decoration: underline;
 	}
-	.date {
+	.author, .date {
 		font-size: 14px;
-		float: right;
+    color: #333;
 	}
+  .date {
+    float: right;
+  }
 	.content {
 		clear: both;
 		margin-top: 20px;

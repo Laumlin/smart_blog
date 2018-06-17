@@ -1,11 +1,13 @@
 <template>
 	<div class="home">
 		<base-article v-for="(article, key) in articles" :article="article" :key="key"/>
+    <Base-toTop class="back-to-top"/>
 	</div>
 </template>
 
 <script>
 const BaseArticle = () => import('@/components/base-article')
+const BaseToTop = () => import('@/components/base-toTop')
 
 export default {
 	name: 'view-home',
@@ -17,6 +19,7 @@ export default {
   computed: {
     articles () {
       return this.$store.state.article.articles.articles
+      console.log(this.$store.state.article.articles.articles)
     }
   },
 	mounted () {
@@ -40,7 +43,8 @@ export default {
       })
 	},
 	components: {
-		BaseArticle
+		BaseArticle,
+    BaseToTop
 	},
 }
 </script>
@@ -48,6 +52,6 @@ export default {
 <style scoped>
 .home {
 	margin-left: 40px;
-	width: 70%;
+	width: 80%;
 }
 </style>
