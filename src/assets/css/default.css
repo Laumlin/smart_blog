@@ -43,7 +43,14 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-a:hover, a:visited, a:link, a:active {
+
+a {
+  color: #59b983;
+}
+a:hover {
+  text-decoration: underline;
+}
+a:visited, a:link, a:active {
   text-decoration: none;
 }
 
