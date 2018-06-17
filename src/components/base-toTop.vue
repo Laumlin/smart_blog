@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button class="back-top" @click="backTop" v-show="backTopShow">toTop</button>
+    <a class="back-top" @click="backTop" v-show="backTopShow"></a>
   </div>
 </template>
 
@@ -8,11 +8,11 @@
 export default {
   data () {
     return {
-      backTopShow: true
+      backTopShow: false
     }
   },
   mounted () {
-    window.addEventListener('scroll', this.handleScroll)
+   window.addEventListener('scroll', this.handleScroll)
   },
   methods: {
     backTop () {
@@ -24,13 +24,14 @@ export default {
           clearInterval(back)
         }
       })
-    }
-  },
-  handleScroll () {
-    if (document.documentElement.scrollTop + document.body.scrollTop > 100) {
-      this.backTopShow = true
-    } else {
-      this.backTopShow = false
+    },
+    handleScroll () {
+      console.log('move')
+      if (document.documentElement.scrollTop + document.body.scrollTop > 100) {
+        this.backTopShow = true
+      } else {
+        this.backTopShow = false
+      }
     }
   }
 }
@@ -39,7 +40,11 @@ export default {
 <style scoped>
 .back-top {
   position: fixed;
-  right: 10px;
-  bottom: 10px;
+  right: 50px;
+  bottom: 50px;
+  width: 50px;
+  height: 50px;
+  background: url('../assets/images/top.png') no-repeat;
+  opacity: 0.7;
 }
 </style>
