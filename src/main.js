@@ -5,10 +5,15 @@ import App from './App'
 import router from './router'
 import store from './store'
 import Notification from 'vue-notification'
+import filter from '@/init/filter'
 import './api'
 import "@/mock/mock"
 
 import '@/assets/css/default.css'
+
+for (let key of Object.keys(filter)) {
+  Vue.filter(key, filter[key])
+}
 
 Vue.config.productionTip = false
 Vue.use(Notification)
