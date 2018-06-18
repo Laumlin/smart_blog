@@ -2,13 +2,15 @@
   	<article>
       <h2 class="title">{{ article.title }}</h2>
       <span class="author">{{ article.author.name }}</span>
-      <span class="date">{{ article.date }}</span>
-      <p class="content">{{ article.content }}</p>
+      <span class="date" >{{ article.date }}</span>
+      <vue-markdown v-highlight :source="article.content" class="markdown-body">
+      </vue-markdown>
       <Base-toTop class="back-to-top"/>
   	</article>
 </template>
 
 <script>
+const VueMarkdown = () => import('vue-markdown')
 const BaseToTop = () => import('@/components/base-toTop')
 export default {
 	name: 'view-article',
@@ -31,7 +33,8 @@ export default {
       })
 	},
   components: {
-    BaseToTop
+    BaseToTop,
+    VueMarkdown
   }
 }
 </script>
@@ -63,13 +66,8 @@ article {
   .date {
     float: right;
   }
-	.content {
+/*	.content {
 		clear: both;
 		margin-top: 20px;
-		line-height: 24px;
-		font-size: 16px;
-		font-family: "Source Code Pro";
-		text-indent: 32px;
-		color: #444;
-	}
+	}*/
 </style>
