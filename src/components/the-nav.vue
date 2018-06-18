@@ -1,16 +1,16 @@
 <template>
   <nav class="nav">
     <div class="logo-wrap">
-      <img class="logo" src="@/assets/images/logo.png" alt="Logo">
+      <router-link :to="{name: 'home'}"><img class="logo" src="@/assets/images/logo.png" alt="Logo"></router-link>
     </div>
-    <div class="admin" v-if="!userCurrent">
-      <button class="admin-button">
+    <div class="admin" key="1">
+      <button class="admin-button" v-if="!user">
         <router-link class="admin-button-link" :to="{name: 'login'}">登录</router-link>
       </button>
-    </div>
-    <div class="admin" v-else>
-      <button class="admin-button"><router-link class="admin-button-link" :to="{name: 'login'}">{{userCurrent.name}}</router-link></button>
-      <button class="admin-button" @click="loginout"><i class="iconfont loginout">&#xe639;</i></button>
+      <div class="button-wrap" v-else>
+        <button class="admin-button"><router-link class="admin-button-link" :to="{name: 'login'}">{{user.name}}</router-link></button>
+        <button class="admin-button" @click="loginout"><i class="iconfont loginout">&#xe639;</i></button>
+      </div>
     </div>
   </nav>
 </template>
@@ -19,13 +19,24 @@
   export default {
     name: 'the-nav',
     computed: {
-      userCurrent () {
+      user () {
         return this.$store.state.user.user
       }
     },
     methods: {
       loginout () {
-        //脱出
+        console.log('loginout')
+        this.$store.dispatch('loginout')
+          .then((res) => {
+            this.$store.commit('loginout')
+            this.$notify({
+              group: 'foo',
+              type: 'success',
+              title: '您已退出登录',
+              text: '注销成功'
+            })
+            this.$router.push({name: 'login'})
+          })
       }
     }
   }
@@ -68,6 +79,9 @@
         background-color: #fff;
         outline: none;
         cursor: pointer;
+      }
+      .button-wrap {
+        display: flex;
       }
         .loginout {
           color: #59b983;
