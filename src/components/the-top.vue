@@ -1,6 +1,8 @@
 <template>
   <div>
-    <a class="back-top" @click="backTop" v-show="backTopShow"></a>
+    <a class="back-top" @click="backTop" v-show="backTopShow">
+      <i class="iconfont top-iconfont">&#xe60e;</i>
+    </a>
   </div>
 </template>
 
@@ -26,7 +28,6 @@ export default {
       })
     },
     handleScroll () {
-      console.log('move')
       if (document.documentElement.scrollTop + document.body.scrollTop > 100) {
         this.backTopShow = true
       } else {
@@ -41,11 +42,24 @@ export default {
 .back-top {
   position: fixed;
   right: 50px;
-  bottom: 50px;
+  bottom: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 50px;
   height: 50px;
-  background: url('../assets/images/top_1.png');
-  background-size: 50px 50px;
-  opacity: 0.7;
+  background-color: #59b983;
+  border-radius: 50px;
+  box-shadow: rgba(26, 26, 26, 0.1) 0px 1px 3px;
+  transform: translateY(50%);
+  cursor: pointer;
 }
+.back-top:hover {
+  background-color: #5fca8d;
+  text-decoration: none;
+}
+  .top-iconfont {
+    color: #fff;
+    font-size: 2em;
+  }
 </style>
