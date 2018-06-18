@@ -1,13 +1,13 @@
 <template>
 	<div class="login">
-    <div class="login-sign" @keyup.enter="login">
+    <div class="login-sign">
       <div class="login-sign-logo">
         <img class="login-sign-avator" src="@/assets/images/logo.png" alt="logo！">
       </div>
       <form class="login-sign-form">
         <input type="text" v-model="user.username" class="login-sign-input" placeholder="username" autofocus>
         <input type="password" v-model="user.password" class="login-sign-input"
-        placeholder="password" @keyup.enter.stop="login">
+        placeholder="password">
         <div class="button-wrap" @click="login"><base-button><i class="iconfont login-icon">&#xe858;</i></base-button></div>
       </form>
     </div>
@@ -38,6 +38,15 @@
             type: 'error',
             title: '账号密码不得为空',
             text: '登录失败'
+          })
+          return
+        }
+        if (this.$store.state.user.user) {
+          this.$notify({
+            group: 'foo',
+            type: 'error',
+            title: '已有用户登录',
+            text: '请注销后重试'
           })
           return
         }
