@@ -55,6 +55,7 @@ export default {
   align-items: center;
   flex-direction: column;
   margin-top: 80px;
+  margin-bottom: 40px;
 }
   .home {
     width: 850px;
