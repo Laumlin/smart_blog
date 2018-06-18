@@ -4,7 +4,10 @@
       <img class="logo" src="@/assets/images/logo.png" alt="Logo">
     </div>
     <div class="admin">
-      <button class="admin-button"><router-link class="admin-button-link" :to="{name: 'login'}">登录</router-link></button>
+      <button class="admin-button">
+        <router-link class="admin-button-link" :to="{name: 'login'}" v-if="!userCurrent">登录</router-link>
+        <router-link class="admin-button-link" :to="{name: 'login'}" v-else>{{userCurrent.name}}</router-link>
+      </button>
     </div>
   </nav>
 </template>
@@ -12,8 +15,9 @@
 <script>
   export default {
     name: 'the-nav',
-    data () {
-      return {
+    computed: {
+      userCurrent () {
+        return this.$store.state.user.user
       }
     }
   }
@@ -48,8 +52,9 @@
       width: calc(100% - 120px);
     }
       .admin-button {
-        width: 60px;
+        width: auto;
         height: 60px;
+        min-width: 70px;
         color: #333;
         border: none;
         background-color: #fff;
