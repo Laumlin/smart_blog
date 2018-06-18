@@ -3,11 +3,14 @@
     <div class="logo-wrap">
       <img class="logo" src="@/assets/images/logo.png" alt="Logo">
     </div>
-    <div class="admin">
+    <div class="admin" v-if="!userCurrent">
       <button class="admin-button">
-        <router-link class="admin-button-link" :to="{name: 'login'}" v-if="!userCurrent">登录</router-link>
-        <router-link class="admin-button-link" :to="{name: 'login'}" v-else>{{userCurrent.name}}</router-link>
+        <router-link class="admin-button-link" :to="{name: 'login'}">登录</router-link>
       </button>
+    </div>
+    <div class="admin" v-else>
+      <button class="admin-button"><router-link class="admin-button-link" :to="{name: 'login'}">{{userCurrent.name}}</router-link></button>
+      <button class="admin-button" @click="loginout"><i class="iconfont loginout">&#xe639;</i></button>
     </div>
   </nav>
 </template>
@@ -18,6 +21,11 @@
     computed: {
       userCurrent () {
         return this.$store.state.user.user
+      }
+    },
+    methods: {
+      loginout () {
+        //脱出
       }
     }
   }
@@ -54,13 +62,16 @@
       .admin-button {
         width: auto;
         height: 60px;
-        min-width: 70px;
+        min-width: 55px;
         color: #333;
         border: none;
         background-color: #fff;
         outline: none;
+        cursor: pointer;
       }
-        .admin-button-link {
+        .loginout {
+          color: #59b983;
+          font-size: 1.5em;
         }
         .admin-button-link:hover {
           text-decoration: underline;
