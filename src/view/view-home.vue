@@ -3,13 +3,11 @@
 		<div class="article-wrap">
       <base-article v-for="(article, key) in articles" :article="article" :key="key"/>
     </div>
-    <Base-toTop class="back-to-top"/>
 	</div>
 </template>
 
 <script>
 const BaseArticle = () => import('@/components/base-article')
-const BaseToTop = () => import('@/components/base-toTop')
 
 export default {
 	name: 'view-home',
@@ -44,8 +42,7 @@ export default {
       })
 	},
 	components: {
-		BaseArticle,
-    BaseToTop
+		BaseArticle
 	},
 }
 </script>

@@ -15,17 +15,15 @@
         </footer>
       </div>
     </article>
-    <Base-toTop class="back-to-top"/>
   </div>
 </template>
 
 <script>
 const VueMarkdown = () => import('vue-markdown')
-const BaseToTop = () => import('@/components/base-toTop')
+
 export default {
   name: 'view-article',
   components: {
-    BaseToTop,
     VueMarkdown
   },
   computed: {
