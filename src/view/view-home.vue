@@ -21,7 +21,6 @@ export default {
   computed: {
     articles () {
       return this.$store.state.article.articles.articles
-      console.log(this.$store.state.article.articles.articles)
     }
   },
 	mounted () {
