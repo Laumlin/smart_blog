@@ -2,21 +2,26 @@
 	<div class="login">
     <div class="login-sign" @keyup.enter="login">
       <div class="login-sign-logo">
-        <img class="login-sign-avator" src="../assets/images/girl.png" alt="你的头像不见了！">
+        <img class="login-sign-avator" src="@/assets/images/logo.png" alt="logo！">
       </div>
-      <div class="login-sign-form">
-        <input type="text" v-model="user.username" class="login-sign-input" placeholder="username" autofocus><br/>
-        <input type="text" v-model="user.password" class="login-sign-input"
-        placeholder="password" @keyup.enter.stop="login"><br/>
-        <button @click="login" class="login-sign-btn">登录</button>
-      </div>
+      <form class="login-sign-form">
+        <input type="text" v-model="user.username" class="login-sign-input" placeholder="username" autofocus>
+        <input type="password" v-model="user.password" class="login-sign-input"
+        placeholder="password" @keyup.enter.stop="login">
+        <div class="button-wrap" @click="login"><base-button><i class="iconfont login-icon">&#xe858;</i></base-button></div>
+      </form>
     </div>
   </div>
 </template>
 
 <script>
+  const BaseButton = () => import('@/components/base-button')
+
   export default {
     name: 'view-login',
+    components: {
+      BaseButton
+    },
     data () {
       return {
         user: {
@@ -41,6 +46,7 @@
           password: this.user.password
         })
           .then((res) => {
+            console.log(res)
             this.$store.commit('setUser', res)
             this.$notify({
               group: 'foo',
@@ -64,58 +70,52 @@
 
 <style scoped>
   .login {
-    width: 100%;
-    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    height: 100%;
+    margin-top: 80px;
   }
     .login-sign {
       width: 500px;
-      height: 500px;
-      background-color: rgba(255,255,255,.5);
-      border: 1px solid blue;
-      border-radius: 20px;
-      box-shadow: 0 2px 3px 4px #888;
+      height: 370px;
+      background-color: #fff;
+      border-radius: 3px;
+      box-shadow: 0 1px 3px rgba(26,26,26,.1);
     }
       .login-sign-logo {
-        height: 35%;
         display: flex;
         justify-content: center;
         align-items: center;
+        height: 180px;
       }
         .login-sign-avator {
-          width: 100px;
-          height: 100px;
-          padding: 5px;
-          border: 1px solid #fff;
-          border-radius: 50%;
+          width: 150px;
+          height: 150px;
         }
       .login-sign-form {
-        height: 65%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: calc(100% - 180px);
+        padding-top: 10px;
       }
         .login-sign-input {
-          margin: 40px;
           width: 230px;
           height: 30px;
           padding-left: 10px;
+          margin-bottom: 15px;
           font-size: 16px;
-          border: 1px solid blue;
-          border-radius: 5px;
-        }
-        .login-sign-input:hover {
-          transform: scale(1.1);
-        }
-        .login-sign-btn {
-          margin-top: 20px;
-          width: 100px;
-          height: 36px;
-          border: 1px solid blue;
+          border: 1px solid #999;
           border-radius: 3px;
+          outline: none;
         }
-        .login-sign-btn:hover {
-          transform: scale(1.1);
-          background-color: #FFd;
+          .login-sign-input:focus {
+            border-color: #59b983;
+          }
+        .login-icon {
+          font-size: 1.5em;
         }
 </style>
 
