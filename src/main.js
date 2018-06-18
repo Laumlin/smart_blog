@@ -20,6 +20,7 @@ Vue.directive('highlight', (el) => {
 
 import '@/assets/css/default.css'
 import '@/assets/css/github-markdown.css'
+import '@/assets/iconfont/iconfont.css'
 
 for (let key of Object.keys(filter)) {
   Vue.filter(key, filter[key])
