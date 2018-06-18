@@ -32,7 +32,9 @@ export default {
     }
   },
   mounted () {
-    this.$store.dispatch('getArticle')
+    this.$store.dispatch('getArticle', {
+      id: this.$route.params.id
+    })
       .then((res) => {
         this.$store.commit('setArticle', res)
       })
