@@ -8,8 +8,18 @@ import Notification from 'vue-notification'
 import filter from '@/init/filter'
 import './api'
 import "@/mock/mock"
+import hljs from 'highlight.js'
+import 'highlight.js/styles/googlecode.css'
+
+Vue.directive('highlight', (el) => {
+    let blocks = el.querySelectorAll('pre code')
+    blocks.forEach((block) => {
+        hljs.highlightBlock(block)
+    })
+})
 
 import '@/assets/css/default.css'
+import '@/assets/css/github-markdown.css'
 
 for (let key of Object.keys(filter)) {
   Vue.filter(key, filter[key])

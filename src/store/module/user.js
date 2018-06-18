@@ -15,7 +15,7 @@ export default {
   },
   actions: {
     login ({state, commit}, data) {
-      return http.post('http://172.18.5.196:8080/Smart_Blog/login', data)
+      return http.post('http://172.18.5.196:8080/Smart_Blog/login/', data)
     }
   }
 }

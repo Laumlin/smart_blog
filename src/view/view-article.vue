@@ -8,22 +8,32 @@
         <div class="intro-author"><span class="author">作者: {{ article.author.name }}</span></div>
         <div class="intro-date"><span class="date">时间: {{ article.date | dateMagic }}</span></div>
       </div>
-      <p class="content">{{ article.content }}</p>
-      <Base-toTop class="back-to-top"/>
+      <div class="markdown-body-wrap">
+        <vue-markdown v-highlight :source="article.content" class="markdown-body" />
+        <footer class="footer">
+          <span>Thank you for your reading</span>
+        </footer>
+      </div>
     </article>
+    <Base-toTop class="back-to-top"/>
   </div>
 </template>
 
 <script>
+const VueMarkdown = () => import('vue-markdown')
 const BaseToTop = () => import('@/components/base-toTop')
 export default {
-	name: 'view-article',
+  name: 'view-article',
+  components: {
+    BaseToTop,
+    VueMarkdown
+  },
   computed: {
     article () {
       return this.$store.state.article.article_current
     }
   },
-	mounted () {
+  mounted () {
     this.$store.dispatch('getArticle')
       .then((res) => {
         this.$store.commit('setArticle', res)
@@ -35,9 +45,6 @@ export default {
           text: '获取文章失败'
         })
       })
-	},
-  components: {
-    BaseToTop
   }
 }
 </script>
@@ -48,6 +55,7 @@ export default {
   flex-direction: column;
   align-items: center;
   margin-top: 80px;
+  margin-bottom: 80px;
 }
   .header {
     display: flex;
@@ -56,15 +64,16 @@ export default {
     border-bottom: 1px solid #ccc;
   }
   .article {
-  	width: 80%;
-  	padding: 20px;
-  	background-color: #fff;
-  	box-shadow: 0 1px 3px rgba(26,26,26,.1);
+    width: 80%;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(26,26,26,.1);
   }
-   	.title {
+    .title {
       flex-grow: 1;
-  		color: #333;
-   	}
+      color: #333;
+      font-weight: bold;
+    }
     .intro {
       display: flex;
       height: 30px;
@@ -83,13 +92,21 @@ export default {
         justify-content: flex-end;
         padding-right: 5px;
       }
-  	.content {
-  		clear: both;
-  		margin-top: 20px;
-  		line-height: 24px;
-  		font-size: 16px;
-  		font-family: "Source Code Pro";
-  		text-indent: 32px;
-  		color: #444;
-  	}
+    .markdown-body-wrap {
+      margin-top: 20px;
+      padding-left: 5px;
+      padding-right: 5px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid #ccc;
+    }
+      .footer {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        height: 30px;
+        margin-top: 20px;
+        padding-right: 5px;
+        font-size: .8em;
+        color: #999;
+      }
 </style>
