@@ -29,7 +29,6 @@ export default {
 
 <style scoped>
 article {
-	margin-bottom: 30px;
 	padding: 0 20px;
 	background-color: #fff;
   border-radius: 3px;

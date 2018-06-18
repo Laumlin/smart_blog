@@ -1,7 +1,9 @@
 <template>
-	<div class="home">
-		<div class="article-wrap">
-      <base-article v-for="(article, key) in articles" :article="article" :key="key"/>
+	<div class="home-wrap">
+		<div class="home">
+      <div class="article-wrap" v-for="(article, key) in articles" :key="key">
+        <base-article :article="article" />
+      </div>
     </div>
 	</div>
 </template>
@@ -48,13 +50,16 @@ export default {
 </script>
 
 <style scoped>
-.home {
+.home-wrap {
   display: flex;
   align-items: center;
   flex-direction: column;
   margin-top: 80px;
 }
-  .article-wrap {
+  .home {
     width: 850px;
   }
+    .article-wrap {
+      margin-bottom: 10px;
+    }
 </style>
