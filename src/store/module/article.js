@@ -10,7 +10,7 @@ export default {
       state.articles = articles
     },
     addArticles (state, articles) {
-      state.articles.push(articles)
+      state.articles = state.articles.concat(articles)
     },
     setArticle (state, article) {
       state.article_current = article
