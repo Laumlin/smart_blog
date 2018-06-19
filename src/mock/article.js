@@ -1,5 +1,5 @@
 export const article = {
-  title: '心之所向',
+  title: 'Smart_Blog文章编辑规范',
   id: 1, //文章id
   content: `### 文章标题
 
