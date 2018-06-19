@@ -36,7 +36,6 @@ export default new Router({
       path: '/edit',
       name: 'edit',
       component: Edit
-
     }
   ]
 })
