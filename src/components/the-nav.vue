@@ -9,6 +9,7 @@
       </button>
       <div class="button-wrap" v-else>
         <button class="admin-button"><router-link class="admin-button-link" :to="{name: 'login'}">{{user.name}}</router-link></button>
+        <button class="admin-button"><router-link :to="{name: 'edit'}"><i class="iconfont loginout">&#xe6d6;</i></router-link></button>
         <button class="admin-button" @click="loginout"><i class="iconfont loginout">&#xe639;</i></button>
       </div>
     </div>
