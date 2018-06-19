@@ -9,8 +9,9 @@
       </button>
       <div class="button-wrap" v-else>
         <button class="admin-button"><router-link class="admin-button-link" :to="{name: 'login'}">{{user.name}}</router-link></button>
-        <button class="admin-button"><router-link :to="{name: 'edit'}"><i class="iconfont loginout">&#xe6d6;</i></router-link></button>
-        <button class="admin-button" @click="loginout"><i class="iconfont loginout">&#xe639;</i></button>
+        <button class="admin-button" title="有什么问题请告诉我"><router-link :to="{name: 'send'}"><i class="iconfont loginout">&#xe774;</i></router-link></button>
+        <button class="admin-button" title="新建文章"><router-link :to="{name: 'edit'}"><i class="iconfont loginout">&#xe6d6;</i></router-link></button>
+        <button class="admin-button" @click="loginout" title="注销"><i class="iconfont loginout">&#xe639;</i></button>
       </div>
     </div>
   </nav>
