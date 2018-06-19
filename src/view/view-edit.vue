@@ -53,7 +53,8 @@
           id: createId(),
           title,
           content,
-          date
+          date,
+          author_id: this.$store.state.user.user.id
         }
         this.$http.post('https://test.com', data)
           .then((res) => {

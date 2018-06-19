@@ -143,6 +143,26 @@
         ]
         ```
 
+   3. 发表文章接口
+
+      - type: `post`
+
+      - url: `/publish/`
+
+      - 发送数据
+
+        ```json
+        {
+          "id": Number, //文章id
+          "date": Date, //时间
+          "title": String, //文章标题
+          "content": String, //文章内容
+          "author_id": Number //作者id
+        }
+        ```
+
+        ​
+
 4. 注销接口
 
    - type: `POST`
