@@ -52,6 +52,7 @@
     height: 60px;
     background-color: #fff;
     box-shadow: 1px 1px 1px #a5a5a582;
+    z-index: 1501;
   }
     .logo-wrap {
       display: flex;
