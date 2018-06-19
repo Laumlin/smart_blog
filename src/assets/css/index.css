@@ -1,0 +1,17 @@
+body {
+  background-color: #f6f5f5;
+}
+
+/*transition*/
+
+.fade-enter-active, .fade-leave-active {
+  transition: all .5s;
+}
+.fade-enter {
+  transform: translateX(-200px);
+  opacity: 0;
+}
+.fade-leave-to {
+  transform: translateX(200px);
+  opacity: 0;
+}

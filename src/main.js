@@ -19,6 +19,7 @@ Vue.directive('highlight', (el) => {
 })
 
 import '@/assets/css/default.css'
+import '@/assets/css/index.css'
 import '@/assets/css/github-markdown.css'
 import '@/assets/iconfont/iconfont.css'
 import 'highlight.js/styles/googlecode.css'

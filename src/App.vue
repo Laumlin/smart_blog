@@ -4,7 +4,9 @@
     <!-- <img src="./assets/images/logo.png"> -->
     <the-nav />
     <the-top />
-    <router-view></router-view>
+    <transition mode="out-in" name="fade">
+      <router-view></router-view>
+    </transition>
   </div>
 </template>
 
@@ -20,9 +22,3 @@ export default {
   }
 }
 </script>
-
-<style>
-  body {
-    background-color: #f6f5f5;
-  }
-</style>
