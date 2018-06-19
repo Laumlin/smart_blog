@@ -76,6 +76,17 @@
       reset () {
         this.editor.value = ''
       }
+    },
+    beforeCreate () {
+      if (!this.$store.state.user.user) {
+        this.$notify({
+          group: 'foo',
+          type: 'error',
+          title: '用户未登录',
+          text: '请登录'
+        })
+        this.$router.push({name: 'login'})
+      }
     }
   }
 </script>
