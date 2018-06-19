@@ -18,11 +18,11 @@ export default {
   },
   actions: {
     login ({state, commit}, data) {
-      // return http.post('http://172.18.5.196:8080/Smart_Blog/login/', data)
-      return http.post('http://172.18.5.196:8080/Smart_Blog/login/', {
-        username: data.username,
-        password: data.password
-      })
+      return http.post('https://test.com/login')
+      // return http.post('http://172.18.5.196:8080/Smart_Blog/login/', {
+      //   username: data.username,
+      //   password: data.password
+      // })
     },
     loginout ({state}) {
       return http.post('https://test.com/loginout', {
