@@ -5,6 +5,9 @@ const Login = () => import ('@/view/view-login')
 const Home = () => import ('@/view/view-home')
 const Article = () => import ('@/view/view-article')
 const Edit = () => import ('@/view/view-edit')
+const Send = () => import ('@/view/view-send')
+const SendMail = () => import ('@/components/send-mail')
+const SendGithub = () => import ('@/components/send-github')
 
 Vue.use(Router)
 
@@ -36,6 +39,23 @@ export default new Router({
       path: '/edit',
       name: 'edit',
       component: Edit
+    },
+    {
+      path: '/send',
+      name: 'send',
+      component: Send,
+      redirect: {name: 'send-mail'},
+      children: [
+        {
+          path: '/mail',
+          name: 'send-mail',
+          component: SendMail
+        }, {
+          path: '/github',
+          name: 'send-github',
+          component: SendGithub
+        }
+      ]
     }
   ]
 })
